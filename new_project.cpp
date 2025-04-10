@@ -300,57 +300,81 @@ class tic_tac_toe
       {
         if(v[i] == 5)
         {
-          return 5; // if the center is empty return it
+          return 5; // if the center is empty return it to have a better chance of winning
         }  
       }
 
       // cheacking for the first row
-      int count = 0;
+      int count_of_X = 0;
+      int count_of_O = 0;
       for(int i = 0; i < 3; i++)
       {
         if(*(Ptr_of_arr + i) == 'X')
         {
-          count++;
+          count_of_X++;
         }
-        if(i == 2 && count == 2)
+
+        if(*(Ptr_of_arr + i) == 'O')
+        {
+          count_of_O++;
+        }
+
+        // cheacking if the player X or O is about to win
+        if((i == 2 && count_of_X == 2) || (i == 2 && count_of_O == 2))
         {
           for(int j = 0 ; j < 3; j++)
           {
             if(*(Ptr_of_arr + j) != 'X' && *(Ptr_of_arr + j) != 'O')
             {
-              return *(Ptr_of_arr + j) - 48; // if the player is about to win return the postion
+              return *(Ptr_of_arr + j) - 48; // if either players is about to win return the postion
             }
           }
         }
       }
       // cheacking for the second row
-      count = 0;
+      count_of_X = 0;
+      count_of_O = 0;
       for(int i = 3; i < 6; i++)
       {
         if(*(Ptr_of_arr + i) == 'X')
         {
-          count++;
+          count_of_X++;
         }
-        if(i == 5 && count == 2)
+
+        if(*(Ptr_of_arr + i) == 'O')
+        {
+          count_of_O++;
+        }
+
+        // cheacking if the player X is about to win
+        if((i == 5 && count_of_X == 2) ||( i == 5 && count_of_O == 2))
         {
           for(int j = 3 ; j < 6; j++)
           {
             if(*(Ptr_of_arr + j) != 'X' && *(Ptr_of_arr + j) != 'O')
             {
-              return *(Ptr_of_arr + j) - 48; // if the player is about to win return the postion
+              return *(Ptr_of_arr + j) - 48; // if the player X is about to win return the postion
             }
           }
         }
       }
       // cheacking for the third row
-      count = 0;
+      count_of_X = 0;
+      count_of_O = 0;
       for(int i = 6; i < 9; i++)
       {
         if(*(Ptr_of_arr + i) == 'X')
         {
-          count++;
+          count_of_X++;
         }
-        if(i == 8 && count == 2)
+
+        if(*(Ptr_of_arr + i) == 'O')
+        {
+          count_of_O++;
+        }
+
+        // cheacking if the player X is about to win
+        if((i == 8 && count_of_X == 2) ||( i == 8 && count_of_O == 2))
         {
           for(int j = 6 ; j < 9; j++)
           {
@@ -362,28 +386,25 @@ class tic_tac_toe
         }
       }
       // cheacking for the first column
-      count = 0;
-      for(int i = 0; i < 7; i++)
+      count_of_X = 0;
+      count_of_O = 0;
+      for(int i = 0; i < 7; i+=3)
       {
-        if( i != 0 && i != 3 && i != 6)
-        {
-          continue;
-        }
-
         if(*(Ptr_of_arr + i) == 'X')
         {
-          count++;
+          count_of_X++;
         }
 
-        if(i == 6 && count == 2)
+        if(*(Ptr_of_arr + i) == 'O')
+        {
+          count_of_O++;
+        }
+
+        // cheacking if the player X or O player is about to win
+        if((i == 6 && count_of_X == 2) || (i == 6 && count_of_O == 2) )
         {
           for(int j = 0 ; j < 7; j+=3)
           {
-            if( j != 0 && j != 3 && j != 6)
-            {
-              continue;
-            }
-
             if(*(Ptr_of_arr + j) != 'X' && *(Ptr_of_arr + j) != 'O')
             {
               return *(Ptr_of_arr + j) - 48; // if the player is about to win return the postion
@@ -392,28 +413,24 @@ class tic_tac_toe
         }
       }
       // cheacking for the second column
-      count = 0;
-      for(int i = 1; i < 8; i++)
+      count_of_X = 0;
+      count_of_O = 0;
+      for(int i = 1; i < 8; i+=3)
       {
-        if( i != 1 && i != 4 && i != 7)
-        {
-          continue;
-        }
-
         if(*(Ptr_of_arr + i) == 'X')
         {
-          count++;
+          count_of_X++;
         }
 
-        if(i == 7 && count == 2)
+        if(*(Ptr_of_arr + i) == 'O')
         {
-          for(int j = 1 ; j < 8; j++)
-          {
-            if( j != 1 && j != 4 && j != 7)
-            {
-              continue;
-            }
+          count_of_O++;
+        }
 
+        if((i == 7 && count_of_X == 2) || (i == 7 && count_of_O == 2))
+        {
+          for(int j = 1 ; j < 8; j+=3)
+          {
             if(*(Ptr_of_arr + j) != 'X' && *(Ptr_of_arr + j) != 'O')
             {
               return *(Ptr_of_arr + j) - 48; // if the player is about to win return the postion
@@ -422,28 +439,24 @@ class tic_tac_toe
         }
       }
       // cheacking for the third column
-      count = 0;
-      for(int i = 2; i < 9; i++)
+      count_of_X = 0;
+      count_of_O = 0;
+      for(int i = 2; i < 9; i+=3)
       {
-        if( i != 2 && i != 5 && i != 8)
-        {
-          continue;
-        }
-
         if(*(Ptr_of_arr + i) == 'X')
         {
-          count++;
+          count_of_X++;
         }
 
-        if(i == 8 && count == 2)
+        if(*(Ptr_of_arr + i) == 'O')
+        {
+          count_of_O++;
+        }
+
+        if((i == 8 && count_of_X == 2) || (i == 8 && count_of_O == 2))
         {
           for(int j = 2 ; j < 9; j+=3)
           {
-            if( j != 2 && j != 5 && j != 8)
-            {
-              continue;
-            }
-
             if(*(Ptr_of_arr + j) != 'X' && *(Ptr_of_arr + j) != 'O')
             {
               return *(Ptr_of_arr + j) - 48; // if the player is about to win return the postion
@@ -452,28 +465,24 @@ class tic_tac_toe
         }
       }
       // cheacking for the first diagnal
-      count = 0;
-      for(int i = 0; i < 9; i++)
+      count_of_X = 0;
+      count_of_O = 0;
+      for(int i = 0; i < 9; i+=4)
       {
-        if(i != 0 && i != 4 && i != 8)
-        {
-          continue;
-        }
-
         if(*(Ptr_of_arr + i) == 'X')
         {
-          count++;
+          count_of_X++;
         }
 
-        if(i == 8 && count == 2)
+        if(*(Ptr_of_arr + i) == 'O')
         {
-          for(int j = 0 ; j < 9; j++)
-          {
-            if(j != 0 && j != 4 && j != 8)
-            {
-              continue;
-            }
+          count_of_O++;
+        }
 
+        if((i == 8 && count_of_X == 2) || (i == 8 && count_of_O == 2))
+        {
+          for(int j = 0 ; j < 9; j+=4)
+          {
             if(*(Ptr_of_arr + j) != 'X' && *(Ptr_of_arr + j) != 'O')
             {
               return *(Ptr_of_arr + j) - 48; // if the player is about to win return the postion
@@ -482,28 +491,24 @@ class tic_tac_toe
         }
       }
       // cheacking for the second diagnal
-      count = 0;
-      for(int i = 2; i < 7; i++)
+      count_of_X = 0;
+      count_of_O = 0;
+      for(int i = 2; i < 7; i+=2)
       {
-        if(i != 2 && i != 4 && i != 6)
-        {
-          continue;
-        }
-
         if(*(Ptr_of_arr + i) == 'X')
         {
-          count++;
+          count_of_X++;
         }
 
-        if(i == 6 && count == 2)
+        if(*(Ptr_of_arr + i) == 'O')
+        {
+          count_of_O++;
+        }
+
+        if((i == 6 && count_of_X == 2) || (i == 6 && count_of_O == 2))
         {
           for(int j = 2 ; j < 7; j+=2)
           {
-            if(j != 2 && j != 4 && j != 6)
-            {
-              continue;
-            }
-
             if(*(Ptr_of_arr + j) != 'X' && *(Ptr_of_arr + j) != 'O')
             {
               return *(Ptr_of_arr + j) - 48; // if the player is about to win return the postion
@@ -512,8 +517,9 @@ class tic_tac_toe
         }
       }
 
+      // if no one is about to win return a random number from the vector
       int random_num = rand() % v.size();
-      int ai_num2 = v[random_num]; // genrating a random number from the vector
+      int ai_num2 = v[random_num];
 
       // returning the number to be used in the game
       return ai_num2;
@@ -571,6 +577,7 @@ class tic_tac_toe
             }
             return; // termenating after the recursion has been executed
           }else{
+            on_game = false; // if the player choose to not play again
             return;
           }
         }
@@ -585,7 +592,7 @@ class tic_tac_toe
         {
           cout << "its a draw!" << endl;
           cout << "enter 1 of you wanna play again or 0 to termeniate" << endl;
-          bool playing_again = false;
+          bool playing_again;
           cin >> playing_again;
           if(playing_again == true)
           {
@@ -603,18 +610,19 @@ class tic_tac_toe
             }
             return;
           }else{
+            on_game = false; // if the player choose to not play again
             return;
           }
         }
 
         int *P_index_of_player2 = nullptr; // using a pointer to accses an a out of scope variable
-        if(playing_with_ai != true)
+        if(playing_with_ai == false) // in case of playing with another player
         {
           cout << "O player turn" << endl;
           cout << "enter your postion: " << endl;
           cin >> player2_num;
 
-          // finding and makeing sure that the number is in the vector
+          // finding and making sure that the number player 2 choose is in the vector
           auto iter_of_player2 = find(vec.begin(),vec.end(),player2_num);
           int index_of_player2 = iter_of_player2 - vec.begin();
           P_index_of_player2 = &index_of_player2;
@@ -641,6 +649,7 @@ class tic_tac_toe
               playing(false,palyer_num,player2_num);
               return;
             }else{
+              on_game = false; // if the player choose to not play again
               return;
             }
           }
