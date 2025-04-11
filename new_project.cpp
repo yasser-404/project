@@ -514,17 +514,21 @@ class tic_tac_toe
       }
 
       // cheacking the best moves for the start of the game
-      for(int i = 0 ; i < v.size(); i++)
+      if(*(Ptr_of_arr + 4) == '5')
       {
-        if(v[i] == 5)
-        {
-          return 5; // if the center is empty return it to have a better chance of winning
+        return 5; // if the center is empty return it to have a better chance of winning
 
-        }else if(v[i] == 1 || v[i] == 3 || v[i] == 7 || v[i] == 9)
+      }else{
+        // cheacking the best moves for the corners
+        for(int i = 0 ; i < 9 ; i++)
         {
-          return v[i]; // if the corner is empty return it to have a better chance of winning
-        } 
-      }
+          if(*(Ptr_of_arr + i) == '1'|| *(Ptr_of_arr + i) == '3' || *(Ptr_of_arr + i) == '7' || *(Ptr_of_arr + i) == '9')
+          {
+            return *(Ptr_of_arr + i); // if the corner is empty return it to have a better chance of winning
+          }
+        }
+      } 
+      
 
       // if no one is about to win and there is no a valid move return a random number from the vector
       int random_num = rand() % v.size();
