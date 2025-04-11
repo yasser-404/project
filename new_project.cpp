@@ -32,7 +32,7 @@ class tic_tac_toe
         cout << "X player won! \n";
         for(int i = 0; i < 9; i++)
         {
-          arr[i] = char(i + 49);
+          arr[i] = char(i + 49); // returning the array as it was as the game end
         }
         return true;
 
@@ -41,7 +41,7 @@ class tic_tac_toe
         cout << "X player won! \n";
         for(int i = 0; i < 9; i++)
         {
-          arr[i] = char(i + 49);
+          arr[i] = char(i + 49); // returning the array as it was as the game end
         }
         return true;
 
@@ -50,7 +50,7 @@ class tic_tac_toe
         cout << "X player won! \n";
         for(int i = 0; i < 9; i++)
         {
-          arr[i] = char(i + 49);
+          arr[i] = char(i + 49);// returning the array as it was as the game end
         }
         return true;
       }else if(arr[2] == 'X' && arr[4] == 'X' && arr[6] == 'X') // diagnally
@@ -58,7 +58,7 @@ class tic_tac_toe
         cout << "X player won! \n";
         for(int i = 0; i < 9; i++)
         {
-          arr[i] = char(i + 49);
+          arr[i] = char(i + 49);// returning the array as it was as the game end
         }
         return true;
 
@@ -67,7 +67,7 @@ class tic_tac_toe
         cout << "X player won! \n";
         for(int i = 0; i < 9; i++)
         {
-          arr[i] = char(i + 49);
+          arr[i] = char(i + 49);// returning the array as it was as the game end
         }
         return true;
 
@@ -76,7 +76,7 @@ class tic_tac_toe
         cout << "X player won! \n";
         for(int i = 0; i < 9; i++)
         {
-          arr[i] = char(i + 49);
+          arr[i] = char(i + 49);// returning the array as it was as the game end
         }
         return true;
       
@@ -85,7 +85,7 @@ class tic_tac_toe
         cout << "congrats you won!\n";
         for(int i = 0; i < 9; i++)
         {
-          arr[i] = char(i + 49);
+          arr[i] = char(i + 49);// returning the array as it was as the game end
         }
         return true;
       //                        O winnig
@@ -95,7 +95,7 @@ class tic_tac_toe
         cout << "O player won! \n";
         for(int i = 0; i < 9; i++)
         {
-          arr[i] = char(i + 49);
+          arr[i] = char(i + 49);// returning the array as it was as the game end
         }
         return true;
 
@@ -104,7 +104,7 @@ class tic_tac_toe
         cout << "O player won! \n";
         for(int i = 0; i < 9; i++)
         {
-          arr[i] = char(i + 49);
+          arr[i] = char(i + 49);// returning the array as it was as the game end
         }
         return true;
 
@@ -113,7 +113,7 @@ class tic_tac_toe
         cout << "O player won! \n";
         for(int i = 0; i < 9; i++)
         {
-          arr[i] = char(i + 49);
+          arr[i] = char(i + 49);// returning the array as it was as the game end
         }
         return true;
 
@@ -122,7 +122,7 @@ class tic_tac_toe
         cout << "O player won! \n";
         for(int i = 0; i < 9; i++)
         {
-          arr[i] = char(i + 49);
+          arr[i] = char(i + 49);// returning the array as it was as the game end
         }
         return true;
 
@@ -131,7 +131,7 @@ class tic_tac_toe
         cout << "O player won! \n";
         for(int i = 0; i < 9; i++)
         {
-          arr[i] = char(i + 49);
+          arr[i] = char(i + 49);// returning the array as it was as the game end
         }
         return true;
 
@@ -140,7 +140,7 @@ class tic_tac_toe
         cout << "O player won! \n";
         for(int i = 0; i < 9; i++)
         {
-          arr[i] = char(i + 49);
+          arr[i] = char(i + 49);// returning the array as it was as the game end
         }
         return true;
 
@@ -149,7 +149,7 @@ class tic_tac_toe
         cout << "O player won! \n";
         for(int i = 0; i < 9; i++)
         {
-          arr[i] = char(i + 49);
+          arr[i] = char(i + 49);// returning the array as it was as the game end
         }
         return true;
 
@@ -158,42 +158,46 @@ class tic_tac_toe
         cout << "O player won! \n";
         for(int i = 0; i < 9; i++)
         {
-          arr[i] = char(i + 49);
+          arr[i] = char(i + 49);// returning the array as it was as the game end
         }
         return true;
       }
 
+      // if no one won return false
         return false;
     }
 
     // this function cheacks for draw
     bool cheack_draw(char arr[])
     {
-        int count = 0;
-        for(int i = 0 ; i < 9 ; i++)
+      // cheacking if there is any number left in the array
+      // if so return false
+      int count = 0;
+      for(int i = 0 ; i < 9 ; i++)
+      {
+        if(int(arr[i]) != (i + 49))
         {
-            if(int(arr[i]) != (i + 49))
+          count++;
+          if(count == 9)
+          {
+            for(int i = 0; i < 9; i++)
             {
-                count++;
-                if(count == 9)
-                {
-                    for(int i = 0; i < 9; i++)
-                    {
-                        arr[i] = char(i + 49);
-                    }
-                    return true;
-                }
+              arr[i] = char(i + 49);
             }
+            return true;
+          }
         }
-        return false;
+      }
+      return false;
     }
  
     // this function is used for the strucure of the game and postioning the X's and O's
     bool game_shape(int postion = 0, char x = 'X') 
     {
+      // the array is used to store the numbers and the X's and O's
       const int size = 9;
       static char arr[size] = {'1','2','3','4','5','6','7','8','9'};
-      Ptr_of_arr = arr;
+      Ptr_of_arr = arr; // used to access the array in the class
 
       // used to replace the numbers with X or O
       if((postion >= 1 && postion <= 9) && (x == 'X' || x == 'O'))
@@ -296,15 +300,7 @@ class tic_tac_toe
     // this function makes the ai moves better and more smart
     int ai_enhancing(vector <int> v)
     {
-      for(int i = 0 ; i < v.size(); i++)
-      {
-        if(v[i] == 5)
-        {
-          return 5; // if the center is empty return it to have a better chance of winning
-        }  
-      }
-
-      // cheacking for the first row
+      // cheacking the best moves for the first row
       int count_of_X = 0;
       int count_of_O = 0;
       for(int i = 0; i < 3; i++)
@@ -331,7 +327,7 @@ class tic_tac_toe
           }
         }
       }
-      // cheacking for the second row
+      // cheacking the best moves for the second row
       count_of_X = 0;
       count_of_O = 0;
       for(int i = 3; i < 6; i++)
@@ -358,7 +354,7 @@ class tic_tac_toe
           }
         }
       }
-      // cheacking for the third row
+      // cheacking the best moves for the third row
       count_of_X = 0;
       count_of_O = 0;
       for(int i = 6; i < 9; i++)
@@ -385,7 +381,7 @@ class tic_tac_toe
           }
         }
       }
-      // cheacking for the first column
+      // cheacking the best moves for the first column
       count_of_X = 0;
       count_of_O = 0;
       for(int i = 0; i < 7; i+=3)
@@ -412,7 +408,7 @@ class tic_tac_toe
           }
         }
       }
-      // cheacking for the second column
+      // cheacking the best moves for the second column
       count_of_X = 0;
       count_of_O = 0;
       for(int i = 1; i < 8; i+=3)
@@ -438,7 +434,7 @@ class tic_tac_toe
           }
         }
       }
-      // cheacking for the third column
+      // cheacking the best moves for the third column
       count_of_X = 0;
       count_of_O = 0;
       for(int i = 2; i < 9; i+=3)
@@ -464,7 +460,7 @@ class tic_tac_toe
           }
         }
       }
-      // cheacking for the first diagnal
+      // cheacking the best moves for the first diagnal
       count_of_X = 0;
       count_of_O = 0;
       for(int i = 0; i < 9; i+=4)
@@ -490,7 +486,7 @@ class tic_tac_toe
           }
         }
       }
-      // cheacking for the second diagnal
+      // cheacking the best moves for the second diagnal
       count_of_X = 0;
       count_of_O = 0;
       for(int i = 2; i < 7; i+=2)
@@ -517,7 +513,20 @@ class tic_tac_toe
         }
       }
 
-      // if no one is about to win return a random number from the vector
+      // cheacking the best moves for the start of the game
+      for(int i = 0 ; i < v.size(); i++)
+      {
+        if(v[i] == 5)
+        {
+          return 5; // if the center is empty return it to have a better chance of winning
+
+        }else if(v[i] == 1 || v[i] == 3 || v[i] == 7 || v[i] == 9)
+        {
+          return v[i]; // if the corner is empty return it to have a better chance of winning
+        } 
+      }
+
+      // if no one is about to win and there is no a valid move return a random number from the vector
       int random_num = rand() % v.size();
       int ai_num2 = v[random_num];
 
@@ -535,7 +544,7 @@ class tic_tac_toe
       playing_with_ai ? cout << "you play as X\n" : cout << "X player begains\n";
       game_shape(); // calling the function without parameters to demonstrate the game
 
-      while(on_game)
+      while(on_game) // make the game runs until the player choose to stop
       {
         cout << "=================\n";
         playing_with_ai ? cout << "your turn....\n" : cout << "X player turn\n";
@@ -624,7 +633,8 @@ class tic_tac_toe
 
           // finding and making sure that the number player 2 choose is in the vector
           auto iter_of_player2 = find(vec.begin(),vec.end(),player2_num);
-          int index_of_player2 = iter_of_player2 - vec.begin();
+          // locating the index of the number player 2 choose
+          int index_of_player2 = iter_of_player2 - vec.begin(); 
           P_index_of_player2 = &index_of_player2;
 
           while(iter_of_player2 == vec.end())
@@ -673,12 +683,13 @@ class tic_tac_toe
               playing(true,palyer_num,ai_num2);
 
             }else{
+              on_game = false; // if the player choose to not play again
               return;
             }
           }
         }
 
-        // finding and earising the number from the vector in case of ai and in case of playnig with other player
+        // finding and earising the number from the vector in case of playing with computer and playnig with other player
         if(playing_with_ai == true)
         {
           auto iter_of_ai = find(vec.begin(),vec.end(),ai_num2);
@@ -699,7 +710,7 @@ int main()
   int playing_with_ai;
   cout << "wlecome to tic tac toe game\n";
   cout << "press 1 to play with the computer or 0 to play with another player\n";
-  enum { TRUE = 1, FALSE = 0};
+  enum { TRUE = 1, FALSE = 0}; // using enum to make the code more readable
   cin >> playing_with_ai;
   switch(playing_with_ai)
   {
