@@ -524,7 +524,7 @@ class tic_tac_toe
         {
           if(*(Ptr_of_arr + i) == '1'|| *(Ptr_of_arr + i) == '3' || *(Ptr_of_arr + i) == '7' || *(Ptr_of_arr + i) == '9')
           {
-            return *(Ptr_of_arr + i); // if the corner is empty return it to have a better chance of winning
+            return *(Ptr_of_arr + i) - 48; // if the corner is empty return it to have a better chance of winning
           }
         }
       } 
